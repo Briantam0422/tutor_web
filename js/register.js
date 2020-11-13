@@ -17,6 +17,14 @@ const input_password_confirm = document.getElementById("form-group-input-passwor
 const btn_submit_register = document.getElementById("btn-register");
 const btn_have_account = document.getElementById("btn-have-account");
 
+firebase.auth().onAuthStateChanged(function(user){
+    if(user){
+        window.location.assign("index.html");
+    }else{
+      
+    }
+
+  });
 
 //button register
 btn_submit_register.addEventListener('click', e =>{

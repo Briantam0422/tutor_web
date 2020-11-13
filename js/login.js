@@ -19,6 +19,15 @@ var firebaseConfig = {
   const btn_forget_password = document.getElementById("btn-forget-password");
   const btn_create_account = document.getElementById("btn-create-account");
 
+  firebase.auth().onAuthStateChanged(function(user){
+    if(user){
+        window.location.assign("index.html");
+    }else{
+      
+    }
+
+  });
+
   btn_login.addEventListener("click", e =>{
 
     const txtEmail = input_email.value;
