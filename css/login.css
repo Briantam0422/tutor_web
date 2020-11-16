@@ -43,7 +43,7 @@ body{
 
 #header-line{
     width: 500px;
-content: url(/img/ic_form_header_line.svg);
+content: url(img/ic_form_header_line.svg);
 }
 
 #label-email{
@@ -94,7 +94,7 @@ content: url(/img/ic_form_header_line.svg);
     margin-right: 20px;
     width: 40px;
     height: 40px;
-    background-image: url("/img/ic_google.svg");
+    background-image: url("img/ic_google.svg");
     background-color: transparent;
     background-size: cover;
     border: 0;
@@ -109,7 +109,7 @@ content: url(/img/ic_form_header_line.svg);
     margin-top: 40px;
     width: 40px;
     height: 40px;
-    background-image: url("/img/ic_facebook.svg");
+    background-image: url("img/ic_facebook.svg");
     background-color: transparent;
     background-size: cover;
     border: 0;
