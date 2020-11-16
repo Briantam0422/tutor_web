@@ -42,7 +42,7 @@ body{
 
 #header-line{
     width: 500px;
-content: url(img/ic_form_header_line.svg);
+content: url(/img/ic_form_header_line.svg);
 }
 
 .form{
