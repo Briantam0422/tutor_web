@@ -1,0 +1,77 @@
+:root{
+
+    --main_color: #2271A9;
+    --gray: #818181;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Signika', sans-serif;
+}
+html{
+    width: 100%;
+    height: 100%;
+    
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(290deg, rgb(34, 113, 169, 1), rgb(31, 16, 197, 0.5));
+    background-repeat: no-repeat;
+  
+}
+
+#tutor-form{
+    width: 500px;
+    height: 800px;
+    background-color: white;
+    position: relative;
+    top: 100px;
+    left: 0;
+    border: 2px solid white;
+    border-radius: 10px;
+    box-shadow: 2px 3px;
+}
+
+form img{
+    margin-top: 40px;
+}
+
+.form-header h1{
+    height: 35px;
+    margin-top: 60px;
+    padding-left: 48px;
+    font-size: 40px;
+}
+
+#header-line{
+    width: 500px;
+content: url(/img/ic_form_header_line.svg);
+}
+
+.form-name{
+    margin-top: 50px;
+    position: relative;
+    top: 0px;
+    left: 100px;
+}
+
+.form{
+    margin-top: 30px;
+    position: relative;
+    top: 0px;
+    left: 100px;
+}
+
+#form-group-input-name, #form-group-input-gender, #form-group-input-age{
+    width: 300px;
+}
+
+.btn-primary{
+    width: 100px;
+    background-color: var(--main_color);
+    position: relative;
+    top: 50px;
+    left: 200px;
+}   
