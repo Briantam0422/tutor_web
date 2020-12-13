@@ -53,20 +53,7 @@ btn_submit_register.addEventListener('click', e =>{
                             console.log(error.code)
                         })
 
-                        var database = firebase.database();
-                        //insert user data to realtime database
-                        var postData  = { 
-                            id: user.uid,
-                            email: user.email,
-                            verifyState: "false"
-                        }
-                    
-                        var updates = {};
-
-                        updates["users/" + user.uid] = postData;
-                                                //redirect to email verification page
-                                                window.location.assign("EmailVerification.html");
-                        return database.ref().update(updates);
+                        updateFirebase(user);
                 
                     }else{
                         console.log("not logged in")
@@ -100,19 +87,27 @@ btn_submit_register.addEventListener('click', e =>{
     
 });
 
+function updateFirebase(user){
+    var database = firebase.database();
+    //insert user data to realtime database
+    var postData  = { 
+        id: user.uid,
+        email: user.email,
+    }
 
+    var updates = {};
+
+    updates["users/" + user.uid] = postData;
+           
+    database.ref().update(updates).then(user =>{
+        window.location.assign("EmailVerification.html")
+    });
+
+}
 
 //already have account
 btn_have_account.addEventListener('click', e=>{
 
-    firebase.auth().signOut().then(function(){
-
-        console.log("signed out");
-
-    }).catch(function(error){
-
-        console.log(error.message);
-        console.log(error.code)
-    })
+    window.assign("../Login.html");
 
 });

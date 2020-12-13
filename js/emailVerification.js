@@ -36,15 +36,8 @@ var firebaseConfig = {
                 if(firebaseUser.emailVerified == false){
                     alert("Email is not verified")
                 }else{
-                    //redirect to index.html
-                    //update verufystatus
-                    var postData = {
-                      verifyState: "Yes"
-                    };
-                    var updates = {};
-                    updates["users/" + firebaseUser.uid] = postData;
-                    window.location.assign("index.html");
-                    return firebase.database().ref().update(updates);
+                    //redirect to index.html 
+                      window.location.assign("index.html");
                 }
             });
         }else{

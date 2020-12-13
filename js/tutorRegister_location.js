@@ -37,13 +37,19 @@ var firebaseConfig = {
    
             var updates = {};
    
-            updates["tutors/" + user.uid] = postData;
+             var tutor_id = firebase.database().ref("tutors/" + user.uid).push().getKey();
+
+            
 
             if(input_district.value!="" && input_location.value!=""){
-            //   window.location.assign("index.html")
+              updates["tutors/" + user.uid + "/"+ tutor_id] = postData;
+              
+              firebase.database().ref().update(updates).then(user=>{
+                window.location.assign("index.html");
+              })
             }
             
-            return firebase.database().ref().update(updates);
+            
             
         }else{
 
