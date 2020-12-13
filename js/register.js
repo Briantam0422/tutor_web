@@ -19,7 +19,7 @@ const btn_have_account = document.getElementById("btn-have-account");
 
 firebase.auth().onAuthStateChanged(function(user){
     if(user){
-        window.location.assign("index.html");
+        //window.location.assign("index.html");
     }else{
       
     }
@@ -38,8 +38,41 @@ btn_submit_register.addEventListener('click', e =>{
             auth.createUserWithEmailAndPassword(txtEmail, txtPassword).then(function(){
     
                 //create account successfuly
+
+                //check user login status
+                firebase.auth().onAuthStateChanged(function(user){
             
+                    if(user){
+
+                        //send emial verification
+                        user.sendEmailVerification().then(function(){
+                            
+                        
+                        }).catch(function(error){
+                            console.log(error.message)
+                            console.log(error.code)
+                        })
+
+                        var database = firebase.database();
+                        //insert user data to realtime database
+                        var postData  = { 
+                            id: user.uid,
+                            email: user.email,
+                            verifyState: "false"
+                        }
+                    
+                        var updates = {};
+
+                        updates["users/" + user.uid] = postData;
+                                                //redirect to email verification page
+                                                window.location.assign("EmailVerification.html");
+                        return database.ref().update(updates);
                 
+                    }else{
+                        console.log("not logged in")
+                    }
+
+})
         
             }).catch(function(error){
                 console.log(error.message);
@@ -67,44 +100,7 @@ btn_submit_register.addEventListener('click', e =>{
     
 });
 
-//check user login status
-firebase.auth().onAuthStateChanged(firebaseUser =>{
 
-    if(firebaseUser){
-        console.log(firebaseUser);
-        console.log(firebaseUser.uid);
-        var database = firebase.database();
-        
-        //send emial verification
-        firebaseUser.sendEmailVerification().then(function(){
-    
-            //redirect to email verification page
-            window.location.assign("EmailVerification.html");
-
-        }).catch(function(error){
-            console.log(error.message)
-            console.log(error.code)
-        })
-        
-        //insert user data to realtime database
-        var postData  = {
-            id: firebaseUser.uid,
-            email: firebaseUser.email,
-            verifyState: "false"
-        }
-
-        var updates = {};
-        
-        updates["users/" + firebaseUser.uid] = postData;
-
-        return database.ref().update(updates);
-
-
-    }else{
-        console.log("not logged in")
-    }
-
-})
 
 //already have account
 btn_have_account.addEventListener('click', e=>{

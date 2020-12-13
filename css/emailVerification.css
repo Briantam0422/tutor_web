@@ -10,7 +10,6 @@
     font-family: 'Signika', sans-serif;
 }
 html{
-    width: ;
     height: 100%;
 }
 body{
@@ -42,7 +41,7 @@ body{
 
 #header-line{
     width: 500px;
-content: url(/img/ic_form_header_line.svg);
+content: url("../img/ic_form_header_line.svg");
 }
 
 .form{

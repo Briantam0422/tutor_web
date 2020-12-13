@@ -55,8 +55,8 @@ li{
 }
 
 .home-intro{
-    height: 1080px;
-    background: url("/img/img_home_bg.jpg") center;
+    height: 980px;
+    background: url("../img/img_home_bg.jpg") center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
