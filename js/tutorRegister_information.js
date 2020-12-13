@@ -19,29 +19,14 @@ var firebaseConfig = {
 
   firebase.auth().onAuthStateChanged(function(user){
     if(user){
-        //upload user data to firebase
+
         btn_next.addEventListener("click", e=>{
 
-            // var txtName = input_name.value;
-            // var txtGender =input_gender.value;
-            // var txtAge = input_age.value;
-//   
-            // var postData = {
-                // tutor_full_name: txtName,
-                // tutor_gender: txtGender,
-                // tutor_age: txtAge
-            // }
-//   
-            // var updates = {};
-//   
-            // updates["tutors/" + user.uid] = postData;
             passValue();
             if(input_age.value!="" && input_name!="" && input_gender!=""){
               window.location.assign("TutorRegister_Background.html")
             }
             
-            // return firebase.database().ref().update(updates);
-
         });
     }else{
       

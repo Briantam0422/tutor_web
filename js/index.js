@@ -84,7 +84,7 @@ var firebaseConfig = {
       var tutor_id = document.getElementById(get_tutor_key).value;
       
       passValue(tutor_id)
-      window.location.assign("User_Profile.html");
+      window.location.assign("../User_Profile.html");
       
     })
 
