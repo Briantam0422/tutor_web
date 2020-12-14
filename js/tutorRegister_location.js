@@ -20,6 +20,7 @@ var firebaseConfig = {
     firebase.auth().onAuthStateChanged(function(user){
 
         if(user){
+
             var postData = {
                 tutor_full_name: localStorage.getItem("name"),
                 tutor_gender: localStorage.getItem("gender"),
@@ -36,11 +37,8 @@ var firebaseConfig = {
              }
    
             var updates = {};
-   
-             var tutor_id = firebase.database().ref("tutors/" + user.uid).push().getKey();
-
+            var tutor_id = firebase.database().ref("tutors/" + user.uid).push().getKey();
             
-
             if(input_district.value!="" && input_location.value!=""){
               updates["tutors/" + user.uid + "/"+ tutor_id] = postData;
               

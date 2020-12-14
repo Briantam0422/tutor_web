@@ -82,7 +82,7 @@ var firebaseConfig = {
 
       var tutor_id = document.getElementById(get_tutor_key).value;
       
-      passValue(tutor_id)
+      passValue(tutor_id, get_gender)
       window.location.assign("../User_Profile.html");
       
     })
@@ -193,13 +193,12 @@ var firebaseConfig = {
   }
 
   var ref = firebase.database().ref("tutors");
-ref.once("value")
+  ref.once("value")
   .then(function(snapshot) {
     snapshot.forEach(function(childSnapshot){
 
       var key = childSnapshot.key;
       childSnapshot.forEach(function(tutorInfoSnapshot){
-        var key = tutorInfoSnapshot.key;
         var data = tutorInfoSnapshot.val();
       
           var age = data["tutor_age"];
@@ -218,10 +217,10 @@ ref.once("value")
     })
   });
 
-  function passValue(key){
+  function passValue(key, get_gender){
 
     localStorage.setItem("key", key);
-
+    localStorage.setItem("chat_user_gender", get_gender)
     return false;
 
   }

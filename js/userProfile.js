@@ -12,11 +12,18 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+
 const sign_in = document.getElementById("sign-in");
 const sign_up = document.getElementById("sign-up");
 const porfile = document.getElementById("nav-profile");
 const input_message_text = document.getElementById("input-message-text");
 const btn_send_message = document.getElementById("btn-send-message");
+
+var current_user_gender, chat_user_gender;
+current_user_gender = null;
+chat_user_gender = localStorage.getItem("chat_user_gender");
+
+
 
 sign_in.style.display = "none";
 sign_up.style.display = "none";
@@ -27,12 +34,38 @@ firebase.auth().onAuthStateChanged(function(user){
 
     if(user){
         console.log(user.uid)
+
+        //get user info
+        UserInfo(user.uid)
+
         porfile.style.display = "block";
+        var current_user_id = user.uid;
+        var chat_user_id = localStorage.getItem("key");
+        var message = input_message_text.value;
+        var dateAndTime = new Date();
+        var year = dateAndTime.getFullYear();
+        var mouth = dateAndTime.getMonth();
+        var date = dateAndTime.getDate();
+        var hour = dateAndTime.getHours();
+        var minutes = dateAndTime.getMinutes();
+
+        var display_time = hour + ":" + minutes + " " + date + "/" + mouth + "/" + year;
+
+
+        receiveMessage(current_user_id, chat_user_id)
 
         //click send message
         btn_send_message.addEventListener("click", e=>{
-            SendMessages()
-            uploadToFirebase()
+            uploadToFirebase(current_user_id, chat_user_id, message, display_time)
+        })
+
+        //keyboard "enter"
+        input_message_text.addEventListener("keyup", function(event){
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                uploadToFirebase(current_user_id, chat_user_id, message, display_time)
+                
+            }
         })
         
 
@@ -45,29 +78,25 @@ firebase.auth().onAuthStateChanged(function(user){
 
 })
 
-console.log(localStorage.getItem("key"));
+//get Current User info
+function UserInfo(user_id){
+    var ref = firebase.database().ref("users/" + user_id);
+    ref.once("value")
+    .then(function(snapshopt){
+      
+            var data = snapshopt.val();
+            current_user_gender = data["gender"];
 
-//Send Message
-function SendMessages(){
+    })
 
-    var message = input_message_text.value;
-    var dateAndTime = new Date();
-    var year = dateAndTime.getFullYear();
-    var mouth = dateAndTime.getMonth();
-    var date = dateAndTime.getDate();
-    var hour = dateAndTime.getHours();
-    var minutes = dateAndTime.getMinutes();
-    var seconds = dateAndTime.getSeconds();
-
-    var display_time = hour + ":" + minutes + " " + date + "/" + mouth + "/" + year;
-
-    if(message !=""){      
-        addSendedMessageToList(message, display_time)
-    }
 }
+console.log(localStorage.getItem("key"));
+console.log(localStorage.getItem("chat_user_gender"));
+
 
 //create html elements
 function addSendedMessageToList(message, display_time){
+
     //div 1
     var chat_container = document.getElementById("chat-container");
 
@@ -99,31 +128,116 @@ function addSendedMessageToList(message, display_time){
 
     var icon = document.createElement("img");
     chat_message_send_container.appendChild(icon);
-    icon.src = "../img/img_tutor_icon_1.svg"
+    if(current_user_gender == "Male"){
+        icon.src = "../img/img_tutor_icon_1.svg"
+    }else{
+        icon.src = "../img/img_tutor_icon_2.svg.svg"
+    }
+
+    document.getElementById( 'chat-container' ).scrollBy(0, 10000000000000)
+}
+
+function addReceiverMessageToList(message, display_time){
+
+     //div 1
+     var chat_container = document.getElementById("chat-container");
+
+     //div 1.1
+     var chat_message_receive_container = document.createElement("div");
+     chat_message_receive_container.classList.add("col-12", "chat-messages-receive-container");
+     chat_container.appendChild(chat_message_receive_container);
+ 
+     //div 1.1.1
+     var chat_messages_receive = document.createElement("div");
+     chat_message_receive_container.appendChild(chat_messages_receive);
+     chat_messages_receive.classList.add("chat-messages-receive");
+ 
+     //icon
+     var icon = document.createElement("img");
+     chat_messages_receive.appendChild(icon);
+     if(current_user_gender == "Male"){
+         icon.src = "../img/img_tutor_icon_1.svg"
+     }else{
+         icon.src = "../img/img_tutor_icon_2.svg.svg"
+     }
+
+     //div 1.1.1.1
+     var message_text_and_date = document.createElement("div");
+     chat_messages_receive.appendChild(message_text_and_date);
+     message_text_and_date.classList.add("message-text-and-date");
+ 
+     //message and dateTime
+     var message_text = document.createElement("p");
+     message_text_and_date.appendChild(message_text);
+     message_text.setAttribute("id", "message-text");
+     message_text.innerHTML = message;
+ 
+     var message_date = document.createElement("p");
+     message_text_and_date.appendChild(message_date);
+     message_date.setAttribute("id", "message-date");
+     message_date.innerHTML = display_time
+ 
+     document.getElementById( 'chat-container' ).scrollBy(0, 10000000000000)
 }
 
 //sended message upload to firebase
-function uploadToFirebase(){
+function uploadToFirebase(current_user_id, chat_user_id, message, display_time){
 
-    
+    var message = input_message_text.value;
 
+    //sender firebase
+    var postData = {
+        sender_id: current_user_id,
+        receiver_id: chat_user_id,
+        message: message,
+        date_and_time: display_time
+    }
+
+    var updates = {};
+    var message_id = firebase.database().ref("chat/" + current_user_id + "/" +chat_user_id).push().getKey();
+    updates["chat/" + current_user_id + "/" +chat_user_id + "/" + message_id] = postData;
+
+    firebase.database().ref().update(updates);
+
+    //receiver firebase
+    var postData_receiver = {
+        sender_id: current_user_id,
+        receiver_id: chat_user_id,
+        message: message,
+        date_and_time: display_time
+    }
+
+    var updates = {};
+    var message_id = firebase.database().ref("chat/" + chat_user_id + "/" + current_user_id).push().getKey();
+    updates["chat/" + chat_user_id + "/" + current_user_id + "/" + message_id] = postData_receiver;
+
+    firebase.database().ref().update(updates);
 }
 
 //receive messages
-function receiveMessage(){
+function receiveMessage(current_user_id, chat_user_id){
 
-    
+    firebase.database().ref("chat/" + current_user_id + "/" + chat_user_id).on("child_added", function(snapshot){
+
+        var data = snapshot.val()
+        var sender_id = data.sender_id;
+        var receiver_id = data.receiver_id;
+        var message = data.message;
+        var date_and_time = data.date_and_time;
+
+
+        if(sender_id == current_user_id){
+            addSendedMessageToList(message, date_and_time);
+        }else{
+            addReceiverMessageToList(message, date_and_time);
+        }
+    })
+
 
 }
 
 
 
-
-//chat room auto scroll down
-function bottom() {
-document.getElementById( 'chat-container' ).scrollBy(0, 100000000)
-}
-bottom();
 
 function passValue(){
     localStorage.setItem("isChatroom", true);

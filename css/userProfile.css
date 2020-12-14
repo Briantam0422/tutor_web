@@ -74,6 +74,10 @@ li{
     height: 60px;
 }
 
+#chat-list{
+    list-style-type: none;
+}
+
 .chat-messages-receive-container{
     margin-top: 15px;
 }
@@ -106,9 +110,6 @@ li{
     padding: 2px 10px 3px 100px;
 }
 
-.test{
-    width: 100%;
-}
 
 .chat-messages-send-container{
     display:flex; 
