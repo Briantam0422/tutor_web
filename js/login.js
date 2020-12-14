@@ -23,7 +23,7 @@ var firebaseConfig = {
     if(user){
         if (localStorage.getItem("isChatroom") == "true"){
             localStorage.removeItem("isChatroom")
-            window.location.assign("User_Profile.html");
+            window.location.assign("Chatroom.html");
         }else{
             window.location.assign("index.html");
         }
@@ -42,7 +42,7 @@ var firebaseConfig = {
                     //successful
                     if (localStorage.getItem("isChatroom") == "true"){
                         localStorage.removeItem("isChatroom")
-                        window.location.assign("User_Profile.html");
+                        window.location.assign("Chatroom.html");
 
                     }else{
                         window.location.assign("index.html");
@@ -89,7 +89,7 @@ var firebaseConfig = {
 
                     if (localStorage.getItem("isChatroom") == "true"){
                         localStorage.removeItem("isChatroom")
-                            window.location.assign("User_Profile.html");
+                            window.location.assign("Chatroom.html");
 
                     }else{
                         window.location.assign("index.html");
@@ -121,4 +121,9 @@ var firebaseConfig = {
 
   });
 
- 
+ //go to register page
+ btn_create_account.addEventListener("click", function(){
+
+    window.location.assign("Register.html");
+    
+ })

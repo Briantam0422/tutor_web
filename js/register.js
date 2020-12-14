@@ -14,17 +14,9 @@ var firebaseConfig = {
 const input_email = document.getElementById("form-group-input-email");
 const input_password = document.getElementById("form-group-input-password");
 const input_password_confirm = document.getElementById("form-group-input-password-confirm");
+const input_gender = document.getElementById("form-group-input-gender")
 const btn_submit_register = document.getElementById("btn-register");
 const btn_have_account = document.getElementById("btn-have-account");
-
-firebase.auth().onAuthStateChanged(function(user){
-    if(user){
-        //window.location.assign("index.html");
-    }else{
-      
-    }
-
-  });
 
 //button register
 btn_submit_register.addEventListener('click', e =>{
@@ -32,6 +24,7 @@ btn_submit_register.addEventListener('click', e =>{
     const txtEmail = input_email.value;
     const txtPassword = input_password.value;
     const txtPasswordConfirm = input_password_confirm.value;
+    const inputGender = input_gender.value;
     const auth = firebase.auth();
     if(txtEmail != "" && txtPassword != ""){
         if(txtPassword === txtPasswordConfirm){
@@ -53,7 +46,7 @@ btn_submit_register.addEventListener('click', e =>{
                             console.log(error.code)
                         })
 
-                        updateFirebase(user);
+                        updateFirebase(user, inputGender);
                 
                     }else{
                         console.log("not logged in")
@@ -87,12 +80,13 @@ btn_submit_register.addEventListener('click', e =>{
     
 });
 
-function updateFirebase(user){
+function updateFirebase(user, inputGender){
     var database = firebase.database();
     //insert user data to realtime database
     var postData  = { 
         id: user.uid,
         email: user.email,
+        gender: inputGender
     }
 
     var updates = {};
@@ -108,6 +102,6 @@ function updateFirebase(user){
 //already have account
 btn_have_account.addEventListener('click', e=>{
 
-    window.assign("../Login.html");
+    window.location.assign("../Login.html");
 
 });

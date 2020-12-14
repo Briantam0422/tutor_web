@@ -13,6 +13,7 @@ var firebaseConfig = {
 
   const btn_resent_email = document.getElementById("btn-resent");
   const btn_confirm = document.getElementById("btn-confirm");
+  const btn_back = document.getElementById("btn-back");
   
   function timedRefresh(timeoutPeriod) {
 	setTimeout("location.reload(true);",timeoutPeriod);
@@ -62,3 +63,17 @@ var firebaseConfig = {
     });
 
   });
+
+  //btn back
+  btn_back.addEventListener("click", function(){
+ 
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+  
+      window.location.assign("../index.html")
+    }).catch(function(error) {
+      // An error happened.
+      
+    });
+
+  })

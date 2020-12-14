@@ -7,9 +7,9 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <link rel='stylesheet' href="css\index.css">
+    <link rel='stylesheet' href="css\userProfile.css">
     <link href="https://fonts.googleapis.com/css2?family=Signika&display=swap" rel="stylesheet">
-    <title>TutorStation</title>
+    <title>Chatroom</title>
 </head>
 <body>
 
@@ -23,7 +23,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">About Us</a>
@@ -40,55 +40,42 @@
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Profile</a>
-                    <a class="dropdown-item" href="ChatRecord.html">Chat Record</a>
+                    <a class="dropdown-item" href="#">Chat Record</a>
                     <a class="dropdown-item" href="#" id="btn-sign-out">Sign Out</a>
                   </div>
                 </li>
               </ul>
             </div>
           </nav>
-
     </div>
 
-    <div class="home-intro">
-          <div class="black-bg">
-            <h1>Best Tutor <br> 
-              Your First Choice <br> 
-              <a href="#nevigation-find-tutor"><button class="btn btn-primary btn-find-tutor">Find tutor</button></a><br>
-              <button class="btn btn-primary btn-become-a-teacher" id="btn-become-a-teacher">Become a tutor</button>
-            </h1>
-          </div>
-    </div>
-    
-    <div id="nevigation-find-tutor"></div>
-
-    <div class="container find-tutor" id="find-tutor">
-          <div class="row find-tutor-title">
-              <div class="col-10">
-                  <p id="popular-tutor">Latest Tutor</p>
-              </div>
-                  
-          </div>
-
-          <div class="row">
-              <div class="split-line">
-
-              </div>
-          </div>
-
-          <div class="tutor-list">
-            <div class="row" id="popular-tutor-list">
-              
+    <div class="container">
+        <div class="row">
+            <div class="col-12 chat-container" id="chat-container">
+  
+             
             </div>
-          </div>
 
+            <div class="col-12 chat-input-and-button">
+                <div class="col-12 sperate-line"></div>
+
+                <div class="col-12 text-input-and-send-container">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="input-message-text" placeholder="input your message here" aria-label="your message here" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary" id="btn-send-message" type="button">SEND</button>
+                        </div>
+                      </div>
+
+                </div>
+            </div>
+        </div>
     </div>
-
 
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/userProfile.js"></script>
 </body>
 </html>

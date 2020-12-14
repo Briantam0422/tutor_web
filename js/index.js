@@ -25,6 +25,11 @@ var firebaseConfig = {
   firebase.auth().onAuthStateChanged(function(user){
     if(user){
      
+      //check email Verification status
+      if(!user.emailVerified){
+          window.location.assign("../EmailVerification.html")
+      }
+      
       porfile.style.display = "block";
 
     }else{
@@ -82,8 +87,8 @@ var firebaseConfig = {
 
       var tutor_id = document.getElementById(get_tutor_key).value;
       
-      passValue(tutor_id, get_gender)
-      window.location.assign("../User_Profile.html");
+      passValue(tutor_id, get_gender, get_tutor_name)
+      window.location.assign("../Chatroom.html");
       
     })
 
@@ -217,10 +222,11 @@ var firebaseConfig = {
     })
   });
 
-  function passValue(key, get_gender){
+  function passValue(key, get_gender, get_tutor_name){
 
     localStorage.setItem("key", key);
-    localStorage.setItem("chat_user_gender", get_gender)
+    localStorage.setItem("chat_user_gender", get_gender);
+    localStorage.setItem("chat_user_name", get_tutor_name);
     return false;
 
   }

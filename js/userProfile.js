@@ -57,6 +57,7 @@ firebase.auth().onAuthStateChanged(function(user){
         //click send message
         btn_send_message.addEventListener("click", e=>{
             uploadToFirebase(current_user_id, chat_user_id, message, display_time)
+            input_message_text.value = "";
         })
 
         //keyboard "enter"
@@ -64,7 +65,7 @@ firebase.auth().onAuthStateChanged(function(user){
             if (event.keyCode === 13) {
                 event.preventDefault();
                 uploadToFirebase(current_user_id, chat_user_id, message, display_time)
-                
+                input_message_text.value = "";
             }
         })
         
@@ -126,13 +127,24 @@ function addSendedMessageToList(message, display_time){
     message_date.setAttribute("id", "message-date");
     message_date.innerHTML = display_time
 
+    //div img + name
+    var card_img_name = document.createElement("div");
+    chat_message_send_container.appendChild(card_img_name);
+    card_img_name.classList.add("card_img_name");
+
+    //img
     var icon = document.createElement("img");
-    chat_message_send_container.appendChild(icon);
+    card_img_name.appendChild(icon);
     if(current_user_gender == "Male"){
         icon.src = "../img/img_tutor_icon_1.svg"
     }else{
         icon.src = "../img/img_tutor_icon_2.svg.svg"
     }
+
+    //name
+    var name = document.createElement("p");
+    card_img_name.appendChild(name);
+    name.innerHTML = "you"
 
     document.getElementById( 'chat-container' ).scrollBy(0, 10000000000000)
 }
@@ -152,14 +164,24 @@ function addReceiverMessageToList(message, display_time){
      chat_message_receive_container.appendChild(chat_messages_receive);
      chat_messages_receive.classList.add("chat-messages-receive");
  
-     //icon
-     var icon = document.createElement("img");
-     chat_messages_receive.appendChild(icon);
-     if(current_user_gender == "Male"){
-         icon.src = "../img/img_tutor_icon_1.svg"
-     }else{
-         icon.src = "../img/img_tutor_icon_2.svg.svg"
-     }
+     //div img + name
+    var card_img_name = document.createElement("div");
+    chat_messages_receive.appendChild(card_img_name);
+    card_img_name.classList.add("card_img_name");
+
+    //img
+    var icon = document.createElement("img");
+    card_img_name.appendChild(icon);
+    if(current_user_gender == "Male"){
+        icon.src = "../img/img_tutor_icon_1.svg"
+    }else{
+        icon.src = "../img/img_tutor_icon_2.svg.svg"
+    }
+
+    //name
+    var name = document.createElement("p");
+    card_img_name.appendChild(name);
+    name.innerHTML = localStorage.getItem("chat_user_name");
 
      //div 1.1.1.1
      var message_text_and_date = document.createElement("div");

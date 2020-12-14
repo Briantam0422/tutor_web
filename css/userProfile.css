@@ -84,6 +84,7 @@ li{
 
 .chat-messages-receive, .chat-messages-send{
     display: flex;
+    margin-bottom: 10px;
 }
 
 .message-text-and-date{
@@ -92,6 +93,7 @@ li{
     word-wrap:break-word;
     background-color: #A4C8FF;
     border-radius: 10px;
+    margin-left: 10px;
 }
 
 #message-text{
@@ -139,4 +141,12 @@ li{
     background-color: var(--btn_color_blue);
     color: white;
     border-color: var(--btn_color_blue);
+}
+
+
+.card_img_name p{
+    font-size: 15px;
+    margin-bottom: 0;
+    color: white;
+    text-align: center;
 }

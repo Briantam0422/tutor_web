@@ -26,19 +26,25 @@
               
                 <form onsubmit="return false">
                     <div class="form-group">
-                        <label for="form-group-input-email" id="label-email">Email</label><br>
-                        <div class="form">
+                        <div class="form form-email">
                             <img src="img/ic_email.svg">
                             <input type="email" class="form-control" id="form-group-input-email" placeholder="email" required>
                         </div>
                     </div>
 
-                    <label for="form-group-input-password" id="label-password">Password</label>
-                    <label for="form-group-input-password" id="label-password-confirm">Confirm</label>
                     <div class="form-group" id="form-group-password">
                             <img src="img/ic_password.svg" id="img-password">
                             <input type="password" class="form-control" id="form-group-input-password" placeholder="password" required>
                             <input type="password" class="form-control" id="form-group-input-password-confirm" placeholder="password" required>
+                    </div>
+
+                    <div class="form form-group form-gender" >
+                        <img src="img/ic_register_gender.svg">
+                        <select class="form-control" id="form-group-input-gender" required>
+                            <option value="" selected disabled hidden>your gender</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
                     </div>
 
                     <div class="form">
