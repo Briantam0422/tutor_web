@@ -64,7 +64,6 @@ var firebaseConfig = {
 
   //get popular tutor data
 
-  var tutorNo = 0;
   function addItemsToList(get_degree, get_exp, get_gender, get_age, get_tutor_name, get_level, get_subject, get_location, get_university, get_fee, get_tutor_key){
 
     var div_tutor_list = document.getElementById("popular-tutor-list");
@@ -226,3 +225,5 @@ ref.once("value")
     return false;
 
   }
+  
+  console.log(localStorage.getItem("isChatroom"))

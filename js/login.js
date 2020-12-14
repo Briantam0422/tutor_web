@@ -10,7 +10,7 @@ var firebaseConfig = {
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-
+  console.log(localStorage.getItem("isChatroom"))
   const input_email = document.getElementById("form-group-input-email");
   const input_password = document.getElementById("form-group-input-password");
   const btn_login = document.getElementById("btn-login");
@@ -21,82 +21,104 @@ var firebaseConfig = {
 
   firebase.auth().onAuthStateChanged(function(user){
     if(user){
-        window.location.assign("index.html");
-    }else{
-      
-    }
-
-  });
-
-  btn_login.addEventListener("click", e =>{
-
-    const txtEmail = input_email.value;
-    const txtPassword = input_password.value;
-    
-    if(txtEmail != "" && txtPassword != ""){
-
-        firebase.auth().signInWithEmailAndPassword(txtEmail, txtPassword).then(function(){
-
-            //successful
+        if (localStorage.getItem("isChatroom") == "true"){
+            localStorage.removeItem("isChatroom")
+            window.location.assign("User_Profile.html");
+        }else{
             window.location.assign("index.html");
-
-        }).catch(function(error){
-
-            console.log(error.message);
-            console.log(error.code);
-            if(error.code == "auth/user-not-found"){
-                alert("There is no such email registered");
-            }
-            if(error.code == 'auth/wrong-password'){
-                alert("The password is invalid");
-            }
-
-        })
+        }
     }else{
+
+   
+        btn_login.addEventListener("click", e =>{
+
+            const txtEmail = input_email.value;
+            const txtPassword = input_password.value;
             
+            if(txtEmail != "" && txtPassword != ""){
+        
+                firebase.auth().signInWithEmailAndPassword(txtEmail, txtPassword).then(function(){
+        
+                    //successful
+                    if (localStorage.getItem("isChatroom") == "true"){
+                        localStorage.removeItem("isChatroom")
+                        window.location.assign("User_Profile.html");
+
+                    }else{
+                        window.location.assign("index.html");
+                    }
+        
+                }).catch(function(error){
+        
+                    console.log(error.message);
+                    console.log(error.code);
+                    if(error.code == "auth/user-not-found"){
+                        alert("There is no such email registered");
+                    }
+                    if(error.code == 'auth/wrong-password'){
+                        alert("The password is invalid");
+                    }
+        
+                })
+            }else{
+                    
+            }
+          });
+        
+          //google login
+          btn_google.addEventListener("click", e =>{
+        
+            var provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithPopup(provider).then(function(result) {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                var token = result.credential.accessToken;
+                // The signed-in user info.
+                var user = result.user;
+                // ...
+                //add to real time database
+                var postData = {
+                    id: user.uid,
+                    email: user.email,
+                }
+        
+                var updates = {}
+        
+                updates["users/" + user.uid] = postData
+                
+                firebase.database().ref().update(updates).then(user=>{
+
+                    if (localStorage.getItem("isChatroom") == "true"){
+                        localStorage.removeItem("isChatroom")
+                            window.location.assign("User_Profile.html");
+
+                    }else{
+                        window.location.assign("index.html");
+                    }
+
+                });
+        
+            }).catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // The email of the user's account used.
+                var email = error.email;
+                // The firebase.auth.AuthCredential type that was used.
+                var credential = error.credential;
+                // ...
+          
+                console.log(error.message);
+                console.log(error.code);
+            });
+        })
+        
+        btn_fackbook.addEventListener("click", e=>{
+        
+            alert("Not support facebook login yet, but soon!")
+        
+        });
     }
+
   });
 
-  //google login
-  btn_google.addEventListener("click", e =>{
-
-    var provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        var token = result.credential.accessToken;
-        // The signed-in user info.
-        var user = result.user;
-        // ...
-        //add to real time database
-        var postData = {
-            id: user.uid,
-            email: user.email,
-            verifyState: "Yes"
-        }
-
-        var updates = {}
-
-        updates["users/" + user.uid] = postData
-        window.location.assign("index.html");
-        return firebase.database().ref().update(updates);
-
-    }).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
-  
-        console.log(error.message);
-        console.log(error.code);
-    });
-})
-
-btn_fackbook.addEventListener("click", e=>{
-
-    alert("Not support facebook login yet, but soon!")
-
-});
+ 
