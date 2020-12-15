@@ -11,3 +11,48 @@ var firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+const sign_in = document.getElementById("sign-in");
+const sign_up = document.getElementById("sign-up");
+const porfile = document.getElementById("nav-profile");
+
+sign_in.style.display = "none";
+sign_up.style.display = "none";
+porfile.style.display = "none";
+
+firebase.auth().onAuthStateChanged(function(user){
+
+  if(user){
+
+
+    porfile.style.display = "block";
+
+  }else{
+    
+    //window.location.assign("../Login.html")
+    sign_in.style.display = "block";
+    sign_up.style.display = "block";
+  }
+
+})
+
+function AddChatRecordItemToList(){
+
+  var container = document.getElementById("chat-record-item-cotainer");
+
+  //div 1
+  var chat_record_item = document.createElement("div");
+  container.appendChild(chat_record_item);
+  chat_record_item.classList.add("col-12", "chat-record-item");
+  
+
+  
+  //icon
+  // var chat_record_item_user_icon = document.createElement("div");
+  // row.appendChild(chat_record_item_user_icon);
+  // chat_record_item_user_icon.classList.add("col-1", "chat-record-item-user-icon")
+
+
+}
+
+AddChatRecordItemToList()

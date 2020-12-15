@@ -49,3 +49,81 @@ li{
     margin: 0 8px;
     
 }
+
+.chat-record-item-cotainer{
+    margin-top: 70px;
+  
+}
+
+.chat-record-item{
+    width: 80%;
+    height: 120px;;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px black;
+    margin-top: 20px;
+}
+
+.chat-record-item-user-icon img{
+    width: 90px;
+    height: 90px;
+    margin-top: 10px;
+}
+
+.chat-record-item-user-name-and-message p{
+    margin-left: 30px;
+    font-size: 20px;
+
+}
+
+#chat-record-item-user-name{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: var(--btn_color_blue);
+}
+
+#chat-record-item-message{
+    white-space: nowrap; 
+    max-width: 500px;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.chat-record-item-date-and-time{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.chat-record-item-date-and-time p{
+    margin-bottom: 0;
+    margin-right: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+    .chat-record-item-user-icon  img{
+        width: 60px;
+        height: 60px;
+        margin-top: 30px;
+    }
+    .chat-record-item-user-name-and-message p{
+        font-size: 15px;
+
+    }
+
+    #chat-record-item-user-name{
+        margin-top: 30px;
+        margin-bottom: 10px;
+        color: var(--btn_color_blue);
+    }
+
+    .chat-record-item-date-and-time{
+        width: 100%;
+    }
+
+    .chat-record-item-date-and-time p{
+        font-size: 10px;
+        margin-bottom: 0;
+        margin-right: 20px;
+    }
+}
