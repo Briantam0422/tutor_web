@@ -7,12 +7,11 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <link rel='stylesheet' href="css\chatroom.css">
+    <link rel='stylesheet' href="css\profile.css">
     <link href="https://fonts.googleapis.com/css2?family=Signika&display=swap" rel="stylesheet">
-    <title>Chatroom</title>
+    <title>Profile</title>
 </head>
 <body>
-
     <div class="menubar">
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -39,43 +38,65 @@
                     <span id="your-profile">Your Profile</span><img src="img/ic_profile.svg">
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="Profile.html">Profile</a>
-                    <a class="dropdown-item" href="Chatroom.html">Chat Record</a>
+                    <a class="dropdown-item" href="Profile.html" id="profile">Profile</a>
+                    <a class="dropdown-item" href="ChatRecord.html">Chat Record</a>
                     <a class="dropdown-item" href="#" id="btn-sign-out">Sign Out</a>
                   </div>
                 </li>
               </ul>
             </div>
           </nav>
+
     </div>
 
     <div class="container">
         <div class="row">
-            <div class="col-12 chat-container" id="chat-container">
-  
-             
-            </div>
+            <div class="col-12 info-container">
+                <div class="col-4 user-info">
 
-            <div class="col-12 chat-input-and-button">
-                <div class="col-12 sperate-line"></div>
+                    <div class="user-icon">
+                        <img src="img/img_tutor_icon_1.svg" id="user-icon">
+                    </div>
 
-                <div class="col-12 text-input-and-send-container">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="input-message-text" placeholder="input your message here" aria-label="your message here" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                          <button class="btn btn-outline-secondary" id="btn-send-message" type="button">SEND</button>
-                        </div>
-                      </div>
+                    <p id="user-name">Name</p>
+
+                    <div class="gender-age">
+                        <img src="img/ic_man.svg" id="user-gender">
+                        <p id="user-age">23 year old</p>
+                    </div>
 
                 </div>
+
+                <div class="col-8 tutor-info">
+                        <h2 id="other-Information">Other Information</h2>
+
+                        <div class="col-12 tutor-info-new">
+
+                            <div class="col-5">
+                                <p id="level">Level: Primary</p>
+                                <p id="subject">Subject: Primary</p>
+                                <p id="location">Location: Primary</p>
+                            </div>
+
+                            <div class="col-5">
+                                <p id="major">Major: Engineering</p>
+                                <p id="university">University: Engineering</p>
+                                <p id="experience">Experience: Engineering</p>
+                            </div>
+
+                        </div>
+                </div>
+
             </div>
+
         </div>
+
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
-    <script src="js/chatroom.js"></script>
+    <script src="js/profile.js"></script>
 </body>
 </html>

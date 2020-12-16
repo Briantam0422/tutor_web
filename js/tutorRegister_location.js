@@ -37,10 +37,9 @@ var firebaseConfig = {
              }
    
             var updates = {};
-            var tutor_id = firebase.database().ref("tutors/" + user.uid).push().getKey();
             
             if(input_district.value!="" && input_location.value!=""){
-              updates["tutors/" + user.uid + "/"+ tutor_id] = postData;
+              updates["tutors/" + user.uid] = postData;
               
               firebase.database().ref().update(updates).then(user=>{
                 window.location.assign("index.html");

@@ -14,7 +14,7 @@ var firebaseConfig = {
 
   const sign_in = document.getElementById("sign-in");
   const sign_up = document.getElementById("sign-up");
-  const porfile = document.getElementById("nav-profile");
+  const porfile = document.getElementById("profile");
   const btn_beacome_teacher = document.getElementById("btn-become-a-teacher");
   const sign_out = document.getElementById("btn-sign-out");
   sign_in.style.display = "none";
@@ -45,7 +45,10 @@ var firebaseConfig = {
 
     firebase.auth().onAuthStateChanged(function(user){
       if(user){
-          window.location.assign("TutorRegister_information.html");
+
+        //check whether is tutor
+        CheckUsertutorStatus(user)
+          
       }else{
           window.location.assign("Login.html");
       }
@@ -54,6 +57,21 @@ var firebaseConfig = {
 
   })
 
+  function CheckUsertutorStatus(user){
+      var user_id = user.uid;
+
+      firebase.database().ref("tutors/" + user_id).once("value").then(function(snapshot){
+
+        var data = snapshot.val();
+
+        if(data == null){
+          window.location.assign("TutorRegister_Information.html")
+        }else{
+          window.alert("You have already registed as a tutor")
+        }
+
+      })
+  }
 
   //sign out
   sign_out.addEventListener("click", e => {
@@ -202,10 +220,9 @@ var firebaseConfig = {
   .then(function(snapshot) {
     snapshot.forEach(function(childSnapshot){
 
-      var key = childSnapshot.key;
-      childSnapshot.forEach(function(tutorInfoSnapshot){
-        var data = tutorInfoSnapshot.val();
-      
+          var key = childSnapshot.key;
+          var data = childSnapshot.val();
+
           var age = data["tutor_age"];
           var exp = data["tutor_experience"];
           var tutor_name = data["tutor_full_name"];
@@ -218,7 +235,7 @@ var firebaseConfig = {
           var university = data["tutor_university"];
           
           addItemsToList(degree, exp, gender, age, tutor_name, level, subject, location, university, fee, key);
-      })
+
     })
   });
 
@@ -231,4 +248,9 @@ var firebaseConfig = {
 
   }
   
-  console.log(localStorage.getItem("isChatroom"))
+
+  porfile.addEventListener("click", function(){
+
+    window.location.assign("Profile.html");
+
+  })

@@ -3,9 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href="css\aboutUs.css">
+    <link href="https://fonts.googleapis.com/css2?family=Signika&display=swap" rel="stylesheet">
+    <title>About Us</title>
 </head>
 <body>
-    
+    <div class="menubar">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="#" id="LOGO">TutorStation</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="AboutUs.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Login.html" id="sign-in">Sign In</a>
+                </li>
+                <li class="nav-item" id="btn-sign-up">
+                    <a class="nav-link" href="register.html" id="sign-up">Sign Up</a>
+                </li>
+                <li class="nav-item dropdown" id="nav-profile">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span id="your-profile">Your Profile</span><img src="img/ic_profile.svg">
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="Profile.html">Profile</a>
+                    <a class="dropdown-item" href="ChatRecord.html">Chat Record</a>
+                    <a class="dropdown-item" href="#" id="btn-sign-out">Sign Out</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+          <div class="container">
+              <div class="row">
+                  <div class="col-12 about-us-container">
+                        <h1 id="title">COMP5322 Internet Computing and Application</h1>
+                        <h2>Final Group Project</h2>
+                        <h3>Team Member</h3>
+                  </div>
+
+                  <div class="col-12 about-us-team-member">
+                      <div class="img-center">
+                        <img src="img/img_brian_icon.JPG">
+                      </div>
+       
+                        <div class="info">
+                          <div class="info-bg">
+                              <h2>Tam Heung Wing</h2>
+                              <h2>20015424G</h2>
+                              <h2>20015424G@connect.polyu.hk</h2>
+                          </div>
+                        </div>
+                </div>
+
+                <div class="col-12 about-us-team-member">
+                    <div class="img-center">
+                      <img src="img/img_brian_icon.JPG">
+                    </div>
+     
+                      <div class="info">
+                        <div class="info-bg">
+                            <h2>Tam Heung Wing</h2>
+                            <h2>20015424G</h2>
+                            <h2>20015424G@connect.polyu.hk</h2>
+                        </div>
+                      </div>
+              </div>
+
+                </div>
+              </div>
+          </div>
+
+        <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+    <script src="js/aboutUs.js"></script>
 </body>
 </html>

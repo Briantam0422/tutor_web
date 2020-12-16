@@ -50,52 +50,59 @@ li{
     
 }
 
-.about-us-container{
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 2px 2px 1px black;
-    padding: 20px;
-    margin-top: 100px;
+.info-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 300px;
 }
 
-.about-us-container h1, h2, h3{
-    text-align: center;
-}
-
-#title{
-    margin-top: 20px;
-}
-
-.about-us-team-member{
-    margin-top: 50px;
-    margin-bottom: 50px;
-
-}
-
-.about-us-team-member img{
-    width: 300px;
-    height: 500px;
-    border-radius: 20px;
-}
-
-.img-center{
-    display:flex;
+.user-icon{
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.info{
-    margin-top: 50px;
-} 
-
-.info-bg{
-    background-color: var(--main_color);
-    padding: 25px;
-    border-radius: 20px;
+.user-info p{
     color: white;
-    margin-left: 50px;
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 10px;
 }
 
-.info-bg h1, h2{
-    font-size: 30px;
+.gender-age{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gender-age img{
+    width: 25px;
+    height: 25px;
+}
+
+.gender-age p{
+    color: white;
+    margin-top: 6px;
+    margin-left: 5px;
+}
+
+.tutor-info-new{
+    display: flex;
+}
+
+.tutor-info{
+    margin-top: 20px;
+}
+
+.tutor-info h2, p{
+    color: white;
+}
+
+.tutor-info-new p{
+    font-size: 20px;
+}
+
+#other-Information{
+    margin-bottom: 35px;
 }
