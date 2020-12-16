@@ -26,7 +26,7 @@ var firebaseConfig = {
 
   const sign_in = document.getElementById("sign-in");
   const sign_up = document.getElementById("sign-up");
-  const porfile = document.getElementById("profile");
+  const porfile = document.getElementById("nav-profile");
   const sign_out = document.getElementById("btn-sign-out");
   sign_in.style.display = "none";
   sign_up.style.display = "none";
@@ -86,20 +86,22 @@ var firebaseConfig = {
 
         var data = snapshot.val();
         
-        var tutor_level = data["tutor_level"];
-        var tutor_major = data["tutor_major"];
-        var tutor_subject = data["tutor_teach_subject"];
-        var tutor_university = data["tutor_university"];
-        var tutor_location_get = data["tutor_teach_location"];
-        var tutor_experience = data["tutor_experience"];
-
-        level.textContent = "Level: " + tutor_level;
-        major.textContent = "Major: " + tutor_major;
-        subject.textContent = "Subject: " + tutor_subject;
-        university.textContent = "University: " + tutor_university;
-        tutor_location.textContent = "Location: " + tutor_location_get;
-        experience.textContent = "Experience: " + tutor_experience;
-
+        if(data !=null){
+          var tutor_level = data["tutor_level"];
+          var tutor_major = data["tutor_major"];
+          var tutor_subject = data["tutor_teach_subject"];
+          var tutor_university = data["tutor_university"];
+          var tutor_location_get = data["tutor_teach_location"];
+          var tutor_experience = data["tutor_experience"];
+  
+          level.textContent = "Level: " + tutor_level;
+          major.textContent = "Major: " + tutor_major;
+          subject.textContent = "Subject: " + tutor_subject;
+          university.textContent = "University: " + tutor_university;
+          tutor_location.textContent = "Location: " + tutor_location_get;
+          experience.textContent = "Experience: " + tutor_experience;
+        }
+    
     })
 
   }

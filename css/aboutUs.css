@@ -90,6 +90,7 @@ li{
     height: 350px;
     display: flex;
     border-radius: 10px;
+    object-fit:cover;
 }
 
 .about-us-team-member-new h2{
