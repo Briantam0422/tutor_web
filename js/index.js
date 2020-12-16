@@ -30,7 +30,7 @@ var firebaseConfig = {
 
       //check email Verification status
       if(!user.emailVerified){
-          window.location.assign("../EmailVerification.html")
+          window.location.assign("../tutor_web/EmailVerification.html")
       }
 
       CheckNewMessage(user)
@@ -53,7 +53,7 @@ var firebaseConfig = {
         CheckUsertutorStatus(user)
           
       }else{
-          window.location.assign("Login.html");
+          window.location.assign("../tutor_web/Login.html");
       }
   
     });
@@ -68,7 +68,7 @@ var firebaseConfig = {
         var data = snapshot.val();
 
         if(data == null){
-          window.location.assign("TutorRegister_Information.html")
+          window.location.assign("../tutor_web/TutorRegister_Information.html")
         }else{
           window.alert("You have already registed as a tutor")
         }
@@ -109,7 +109,7 @@ var firebaseConfig = {
       var tutor_id = document.getElementById(get_tutor_key).value;
       
       passValue(tutor_id, get_gender, get_tutor_name)
-      window.location.assign("../Chatroom.html");
+      window.location.assign("../tutor_web/Chatroom.html");
       
     })
 
@@ -150,9 +150,9 @@ var firebaseConfig = {
     card_view_tutor_gender_age.appendChild(gender_img);
     gender_img.setAttribute("id", "tutor-gender");
     if(get_gender == "Male"){
-      gender_img.src = "../img/ic_man.svg";
+      gender_img.src = "../tutor_web/img/ic_man.svg";
     }else{
-      gender_img.src = "../img/ic_woman.svg";
+      gender_img.src = "../tutor_web/img/ic_woman.svg";
     }
 
     var age = document.createElement("p");
@@ -169,9 +169,9 @@ var firebaseConfig = {
     var default_icon = document.createElement("img");
     card_view_tutor_icon_name.appendChild(default_icon);
     if(get_gender == "Male"){
-      default_icon.src = "../img/img_tutor_icon_1.svg";
+      default_icon.src = "../tutor_web/img/img_tutor_icon_1.svg";
     }else{
-      default_icon.src = "../img/img_tutor_icon_2.svg.svg";
+      default_icon.src = "../tutor_web/img/img_tutor_icon_2.svg.svg";
     }
     
     var user_name = document.createElement("p");
@@ -246,7 +246,7 @@ var firebaseConfig = {
   //user profile
   user_profile_page.addEventListener("click", function(){
 
-    window.location.assign("Profile.html");
+    window.location.assign("../tutor_web/Profile.html");
 
   })
 

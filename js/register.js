@@ -97,7 +97,7 @@ function updateFirebase(user, inputGender, inputName){
     updates["users/" + user.uid] = postData;
            
     database.ref().update(updates).then(user =>{
-        window.location.assign("../EmailVerification.html")
+        window.location.assign("../tutor_web/EmailVerification.html")
     });
 
 }
@@ -105,6 +105,6 @@ function updateFirebase(user, inputGender, inputName){
 //already have account
 btn_have_account.addEventListener('click', e=>{
 
-    window.location.assign("../Login.html");
+    window.location.assign("../tutor_web/Login.html");
 
 });

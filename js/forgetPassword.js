@@ -38,6 +38,6 @@ var firebaseConfig = {
 
   btn_back.addEventListener("click", function(){
 
-    window.location.assign("Login.html")
+    window.location.assign("../tutor_web/Login.html")
 
   })

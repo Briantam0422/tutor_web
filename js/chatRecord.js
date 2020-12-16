@@ -111,9 +111,9 @@ function AddChatRecordItemToList(user_key, message, date_and_time, user_name, us
   chat_record_item_user_icon.appendChild(icon);
 
   if(get_user_gender == "Male"){
-    icon.src = "../img/img_tutor_icon_1.svg";
+    icon.src = "../tutor_web/img/img_tutor_icon_1.svg";
   }else{
-    icon.src = "../img/img_tutor_icon_2.svg.svg";
+    icon.src = "../tutor_web/img/img_tutor_icon_2.svg.svg";
   }
 
   //div 1.1.2
@@ -171,7 +171,7 @@ function passValue(key, get_gender, get_tutor_name){
   //user profile
   user_profile_page.addEventListener("click", function(){
 
-    window.location.assign("../Profile.html");
+    window.location.assign("../tutor_web/Profile.html");
 
   })
 
@@ -182,7 +182,7 @@ function passValue(key, get_gender, get_tutor_name){
 
     firebase.database().ref("latest_chat/" + user_id).on("child_changed", function(snapshot){
 
-      window.location.assign("../ChatRecord.html");
+      window.location.assign(../tutor_web/ChatRecord.html");
 
 
     })

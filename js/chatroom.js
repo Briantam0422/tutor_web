@@ -75,7 +75,7 @@ firebase.auth().onAuthStateChanged(function(user){
         sign_in.style.display = "block";
         sign_up.style.display = "block";
         passValue()
-        window.location.assign("../Login.html");
+        window.location.assign("../tutor_web/Login.html");
     }
 
 })
@@ -137,9 +137,9 @@ function addSendedMessageToList(message, display_time){
     var icon = document.createElement("img");
     card_img_name.appendChild(icon);
     if(current_user_gender == "Male"){
-        icon.src = "../img/img_tutor_icon_1.svg"
+        icon.src = "../tutor_web/img/img_tutor_icon_1.svg"
     }else{
-        icon.src = "../img/img_tutor_icon_2.svg.svg"
+        icon.src = "../tutor_web/img/img_tutor_icon_2.svg.svg"
     }
 
     //name
@@ -174,9 +174,9 @@ function addReceiverMessageToList(message, display_time){
     var icon = document.createElement("img");
     card_img_name.appendChild(icon);
     if(localStorage.getItem("chat_user_gender") == "Male"){
-        icon.src = "../img/img_tutor_icon_1.svg"
+        icon.src = "../tutor_web/img/img_tutor_icon_1.svg"
     }else{
-        icon.src = "../img/img_tutor_icon_2.svg.svg"
+        icon.src = "../tutor_web/img/img_tutor_icon_2.svg.svg"
     }
 
     //name
@@ -284,7 +284,7 @@ function receiveMessage(current_user_id, chat_user_id){
 //user profile
 user_profile_page.addEventListener("click", function(){
 
-    window.location.assign("../Profile.html");
+    window.location.assign("../tutor_web/Profile.html");
   
   })      
 
