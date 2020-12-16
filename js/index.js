@@ -169,9 +169,9 @@ var firebaseConfig = {
     var default_icon = document.createElement("img");
     card_view_tutor_icon_name.appendChild(default_icon);
     if(get_gender == "Male"){
-      default_icon.src = "/img/img_tutor_icon_1.svg";
+      default_icon.src = "../img/img_tutor_icon_1.svg";
     }else{
-      default_icon.src = "/img/img_tutor_icon_2.svg.svg";
+      default_icon.src = "../img/img_tutor_icon_2.svg.svg";
     }
     
     var user_name = document.createElement("p");

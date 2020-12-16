@@ -75,7 +75,7 @@ firebase.auth().onAuthStateChanged(function(user){
         sign_in.style.display = "block";
         sign_up.style.display = "block";
         passValue()
-        window.location.assign("Login.html");
+        window.location.assign("../Login.html");
     }
 
 })
@@ -284,7 +284,7 @@ function receiveMessage(current_user_id, chat_user_id){
 //user profile
 user_profile_page.addEventListener("click", function(){
 
-    window.location.assign("Profile.html");
+    window.location.assign("../Profile.html");
   
   })      
 

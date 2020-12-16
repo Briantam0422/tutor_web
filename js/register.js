@@ -97,7 +97,7 @@ function updateFirebase(user, inputGender, inputName){
     updates["users/" + user.uid] = postData;
            
     database.ref().update(updates).then(user =>{
-        window.location.assign("EmailVerification.html")
+        window.location.assign("../EmailVerification.html")
     });
 
 }

@@ -28,7 +28,7 @@ var firebaseConfig = {
         if(user){
             if(experience!="" && teach_level.value!="" && teach_subject!="" && salary!=""){
                 passValue();
-                window.location.assign("TutorRegister_Location.html");
+                window.location.assign("../TutorRegister_Location.html");
 
             }
         }else{

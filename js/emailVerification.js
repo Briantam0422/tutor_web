@@ -38,7 +38,7 @@ var firebaseConfig = {
                     alert("Email is not verified")
                 }else{
                     //redirect to index.html 
-                      window.location.assign("index.html");
+                      window.location.assign("../index.html");
                 }
             });
         }else{

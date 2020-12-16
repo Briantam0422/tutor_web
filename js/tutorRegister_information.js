@@ -24,7 +24,7 @@ var firebaseConfig = {
 
             passValue();
             if(input_age.value!="" && input_name!="" && input_gender!=""){
-              window.location.assign("TutorRegister_Background.html")
+              window.location.assign("../TutorRegister_Background.html")
             }
             
         });

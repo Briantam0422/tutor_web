@@ -57,7 +57,7 @@ sign_out.addEventListener("click", e => {
 //user profile
 user_profile_page.addEventListener("click", function(){
 
-  window.location.assign("Profile.html");
+  window.location.assign("../Profile.html");
 
 })      
 
