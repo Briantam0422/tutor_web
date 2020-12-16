@@ -105,7 +105,7 @@ function AddChatRecordItemToList(user_key, message, date_and_time, user_name, us
   //a link
   var link = document.createElement("a");
   chat_record_item_container.appendChild(link);
-  link.setAttribute("href", "chatroom.html")
+  link.setAttribute("href", "Chatroom.html")
 
   //div 1
   var chat_record_item = document.createElement("div");
