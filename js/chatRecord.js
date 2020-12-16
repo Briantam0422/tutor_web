@@ -57,12 +57,20 @@ function MessageRecord(user){
       var ref = firebase.database().ref("users/" + key).once("value").then(function(user_snapshot){
         
         var user_data = user_snapshot.val();
-        var user_name = user_data["user_name"];
-        var user_gender = user_data["gender"];
-        var message = data["latest_message"];
-        var date_and_time = data["date_and_time"];
 
-        AddChatRecordItemToList(key, message, date_and_time, user_name, user_gender);
+        if(user_data !=null){
+          var user_name = user_data["user_name"];
+          var user_gender = user_data["gender"];
+          var message = data["latest_message"];
+          var date_and_time = data["date_and_time"];
+  
+          AddChatRecordItemToList(key, message, date_and_time, user_name, user_gender);
+        }else{
+
+          window.alert("No Chat Record");
+
+        }
+
       })
 
     })
@@ -182,7 +190,7 @@ function passValue(key, get_gender, get_tutor_name){
 
     firebase.database().ref("latest_chat/" + user_id).on("child_changed", function(snapshot){
 
-      window.location.assign(../tutor_web/ChatRecord.html");
+      window.location.assign("../tutor_web/ChatRecord.html");
 
 
     })
