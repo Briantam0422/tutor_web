@@ -25,7 +25,7 @@ var firebaseConfig = {
             localStorage.removeItem("isChatroom")
             window.location.assign("Chatroom.html");
         }else{
-            window.location.assign("index.html");
+
         }
     }else{
 
@@ -79,17 +79,19 @@ var firebaseConfig = {
                 var postData = {
                     id: user.uid,
                     email: user.email,
+                    gender: "Male",
+                    user_name: user.email
                 }
         
                 var updates = {}
         
-                updates["users/" + user.uid] = postData
+                updates["users/" + user.uid] = postData;
                 
                 firebase.database().ref().update(updates).then(user=>{
 
                     if (localStorage.getItem("isChatroom") == "true"){
-                        localStorage.removeItem("isChatroom")
-                            window.location.assign("Chatroom.html");
+                        localStorage.removeItem("isChatroom");
+                        window.location.assign("Chatroom.html");
 
                     }else{
                         window.location.assign("index.html");

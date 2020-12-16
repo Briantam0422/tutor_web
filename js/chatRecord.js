@@ -15,6 +15,7 @@ firebase.initializeApp(firebaseConfig);
 const sign_in = document.getElementById("sign-in");
 const sign_up = document.getElementById("sign-up");
 const porfile = document.getElementById("nav-profile");
+const user_profile_page = document.getElementById("profile");
 const sign_out = document.getElementById("btn-sign-out");
 
 sign_in.style.display = "none";
@@ -28,6 +29,9 @@ firebase.auth().onAuthStateChanged(function(user){
 
     //get message record data
     MessageRecord(user)
+
+    //check new message
+    CheckNewMessage(user)
 
   }else{
     
@@ -163,3 +167,24 @@ function passValue(key, get_gender, get_tutor_name){
         
       });
   });
+
+  //user profile
+  user_profile_page.addEventListener("click", function(){
+
+    window.location.assign("Profile.html");
+
+  })
+
+  //check new message=
+  function CheckNewMessage(user){
+
+    var user_id = user.uid;
+
+    firebase.database().ref("latest_chat/" + user_id).on("child_changed", function(snapshot){
+
+      window.location.assign("../ChatRecord.html");
+
+
+    })
+
+  }

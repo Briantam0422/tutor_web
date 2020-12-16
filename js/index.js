@@ -14,7 +14,8 @@ var firebaseConfig = {
 
   const sign_in = document.getElementById("sign-in");
   const sign_up = document.getElementById("sign-up");
-  const porfile = document.getElementById("profile");
+  const porfile = document.getElementById("nav-profile");
+  const user_profile_page = document.getElementById("profile");
   const btn_beacome_teacher = document.getElementById("btn-become-a-teacher");
   const sign_out = document.getElementById("btn-sign-out");
   sign_in.style.display = "none";
@@ -31,6 +32,8 @@ var firebaseConfig = {
       if(!user.emailVerified){
           window.location.assign("../EmailVerification.html")
       }
+
+      CheckNewMessage(user)
       
     }else{
 
@@ -239,6 +242,29 @@ var firebaseConfig = {
     })
   });
 
+
+  //user profile
+  user_profile_page.addEventListener("click", function(){
+
+    window.location.assign("Profile.html");
+
+  })
+
+
+  //check new message=
+  function CheckNewMessage(user){
+
+    var user_id = user.uid;
+
+    firebase.database().ref("latest_chat/" + user_id).on("child_changed", function(snapshot){
+
+
+      window.alert("You have new message, Please check the chat record");
+
+    })
+
+  }
+
   function passValue(key, get_gender, get_tutor_name){
 
     localStorage.setItem("key", key);
@@ -249,8 +275,3 @@ var firebaseConfig = {
   }
   
 
-  porfile.addEventListener("click", function(){
-
-    window.location.assign("Profile.html");
-
-  })

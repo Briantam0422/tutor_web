@@ -16,6 +16,7 @@ firebase.initializeApp(firebaseConfig);
 const sign_in = document.getElementById("sign-in");
 const sign_up = document.getElementById("sign-up");
 const porfile = document.getElementById("nav-profile");
+const user_profile_page = document.getElementById("profile");
 const input_message_text = document.getElementById("input-message-text");
 const btn_send_message = document.getElementById("btn-send-message");
 
@@ -172,7 +173,7 @@ function addReceiverMessageToList(message, display_time){
     //img
     var icon = document.createElement("img");
     card_img_name.appendChild(icon);
-    if(current_user_gender == "Male"){
+    if(localStorage.getItem("chat_user_gender") == "Male"){
         icon.src = "../img/img_tutor_icon_1.svg"
     }else{
         icon.src = "../img/img_tutor_icon_2.svg.svg"
@@ -280,9 +281,14 @@ function receiveMessage(current_user_id, chat_user_id){
 
 }
 
+//user profile
+user_profile_page.addEventListener("click", function(){
 
+    window.location.assign("Profile.html");
+  
+  })      
 
-
+  
 function passValue(){
     localStorage.setItem("isChatroom", true);
     return false;

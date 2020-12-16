@@ -16,6 +16,7 @@ var firebaseConfig = {
   const sign_in = document.getElementById("sign-in");
   const sign_up = document.getElementById("sign-up");
   const porfile = document.getElementById("nav-profile");
+  const user_profile_page = document.getElementById("profile");
   const sign_out = document.getElementById("btn-sign-out");
 
   sign_in.style.display = "none";
@@ -30,7 +31,7 @@ var firebaseConfig = {
       if(!user.emailVerified){
           window.location.assign("../EmailVerification.html")
       }
-      
+      CheckNewMessage(user)
       porfile.style.display = "block";
 
     }else{
@@ -42,7 +43,7 @@ var firebaseConfig = {
   });
 
     //sign out
-    sign_out.addEventListener("click", e => {
+sign_out.addEventListener("click", e => {
 
         firebase.auth().signOut().then(function() {
             // Sign-out successful.
@@ -51,5 +52,26 @@ var firebaseConfig = {
             // An error happened.
             
           });
-      });
-    
+});
+
+//user profile
+user_profile_page.addEventListener("click", function(){
+
+  window.location.assign("Profile.html");
+
+})      
+
+  //check new message=
+  function CheckNewMessage(user){
+
+    var user_id = user.uid;
+
+    firebase.database().ref("latest_chat/" + user_id).on("child_changed", function(snapshot){
+
+
+      window.alert("You have new message, Please check the chat record");
+
+
+    })
+
+  }
