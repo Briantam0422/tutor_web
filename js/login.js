@@ -126,7 +126,7 @@ var firebaseConfig = {
  //go to register page
  btn_create_account.addEventListener("click", function(){
 
-    window.location.assign("../tutor_web/Register.html");
+    window.location.assign("../tutor_web/register.html");
     
  })
 
