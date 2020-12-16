@@ -158,7 +158,7 @@ var firebaseConfig = {
     var age = document.createElement("p");
     card_view_tutor_gender_age.appendChild(age);
     age.setAttribute("id", "tutor-age");
-    age.innerHTML = get_age + " " + "year old";
+    age.innerHTML = get_age + " " + "years old";
 
     //5 div 1.2
     var card_view_tutor_icon_name = document.createElement("div");
