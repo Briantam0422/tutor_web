@@ -64,6 +64,31 @@ li{
     margin-top: 20px;
 }
 
+
+.chat-record-item-cotainer a{
+    text-decoration: none;
+}
+
+.chat-record-item-cotainer a:link{
+    text-decoration: none;
+    color: black;
+}
+
+.chat-record-item-cotainer a:visited{
+    text-decoration: none;
+    color: black;
+}
+
+.chat-record-item-cotainer a:hover{
+    text-decoration: none;
+    color: #2271A9;
+}
+
+.chat-record-item-cotainer a:active{
+    text-decoration: none;
+    color: black;
+}
+
 .chat-record-item-user-icon img{
     width: 90px;
     height: 90px;

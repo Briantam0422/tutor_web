@@ -86,12 +86,13 @@ content: url(../img/ic_form_header_line.svg);
 }
 
 .form-email{
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 .form-control{
 
-    width: 290px;
+    width: 280px;
+    height: 50px;
     margin: 10px;
 }
 
@@ -120,7 +121,7 @@ content: url(../img/ic_form_header_line.svg);
 #form-group-input-password{
 
     width: 130px;
-    margin-right: 20px;
+
 }
 
 #form-group-input-password-confirm{

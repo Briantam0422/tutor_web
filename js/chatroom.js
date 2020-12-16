@@ -234,6 +234,28 @@ function uploadToFirebase(current_user_id, chat_user_id, message, display_time){
     updates["chat/" + chat_user_id + "/" + current_user_id + "/" + message_id] = postData_receiver;
 
     firebase.database().ref().update(updates);
+
+    //update the latest message current user
+    var postData_latest_message_current_user = {
+        latest_message: message,
+        date_and_time: display_time
+    }
+
+    var updates = {};
+    updates["latest_chat/" + current_user_id + "/" + chat_user_id] = postData_latest_message_current_user;
+
+    firebase.database().ref().update(updates);
+
+    //update the latest message chat user
+    var postData_latest_message_chat_user = {
+        latest_message: message,
+        date_and_time: display_time
+    }
+
+    var updates = {};
+    updates["latest_chat/" + chat_user_id + "/" + current_user_id] = postData_latest_message_chat_user;
+
+    firebase.database().ref().update(updates);
 }
 
 //receive messages
