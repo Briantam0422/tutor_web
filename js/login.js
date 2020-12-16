@@ -127,3 +127,10 @@ var firebaseConfig = {
     window.location.assign("Register.html");
     
  })
+
+ //go to forget password page
+ btn_forget_password.addEventListener("click", function(){
+
+    window.location.assign("ForgetPassword.html")
+
+ })
