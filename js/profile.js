@@ -27,7 +27,6 @@ var firebaseConfig = {
   const sign_in = document.getElementById("sign-in");
   const sign_up = document.getElementById("sign-up");
   const porfile = document.getElementById("profile");
-  const user_profile_page = document.getElementById("profile");
   const sign_out = document.getElementById("btn-sign-out");
   sign_in.style.display = "none";
   sign_up.style.display = "none";
@@ -117,10 +116,3 @@ var firebaseConfig = {
         
       });
   });
-
-  //user profile
-  user_profile_page.addEventListener("click", function(){
-
-    window.location.assign("../tutor_web/Profile.html");
-  
-  })      

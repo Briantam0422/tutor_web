@@ -243,14 +243,6 @@ var firebaseConfig = {
   });
 
 
-  //user profile
-  user_profile_page.addEventListener("click", function(){
-
-    window.location.assign("../tutor_web/Profile.html");
-
-  })
-
-
   //check new message=
   function CheckNewMessage(user){
 

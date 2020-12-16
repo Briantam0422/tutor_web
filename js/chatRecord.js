@@ -15,7 +15,6 @@ firebase.initializeApp(firebaseConfig);
 const sign_in = document.getElementById("sign-in");
 const sign_up = document.getElementById("sign-up");
 const porfile = document.getElementById("nav-profile");
-const user_profile_page = document.getElementById("profile");
 const sign_out = document.getElementById("btn-sign-out");
 
 sign_in.style.display = "none";
@@ -35,7 +34,7 @@ firebase.auth().onAuthStateChanged(function(user){
 
   }else{
     
-    window.location.assign("../Login.html")
+    window.location.assign("../tutor_web/Login.html")
 
     sign_in.style.display = "block";
     sign_up.style.display = "block";
@@ -54,7 +53,7 @@ function MessageRecord(user){
     
 
       //get User Info
-      var ref = firebase.database().ref("users/" + key).once("value").then(function(user_snapshot){
+      firebase.database().ref("users/" + key).once("value").then(function(user_snapshot){
         
         var user_data = user_snapshot.val();
 
@@ -163,7 +162,6 @@ function passValue(key, get_gender, get_tutor_name){
 
 }
 
-
   //sign out
   sign_out.addEventListener("click", e => {
 
@@ -175,13 +173,6 @@ function passValue(key, get_gender, get_tutor_name){
         
       });
   });
-
-  //user profile
-  user_profile_page.addEventListener("click", function(){
-
-    window.location.assign("../tutor_web/Profile.html");
-
-  })
 
   //check new message=
   function CheckNewMessage(user){

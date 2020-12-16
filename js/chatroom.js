@@ -16,7 +16,6 @@ firebase.initializeApp(firebaseConfig);
 const sign_in = document.getElementById("sign-in");
 const sign_up = document.getElementById("sign-up");
 const porfile = document.getElementById("nav-profile");
-const user_profile_page = document.getElementById("profile");
 const input_message_text = document.getElementById("input-message-text");
 const btn_send_message = document.getElementById("btn-send-message");
 
@@ -281,14 +280,6 @@ function receiveMessage(current_user_id, chat_user_id){
 
 }
 
-//user profile
-user_profile_page.addEventListener("click", function(){
-
-    window.location.assign("../tutor_web/Profile.html");
-  
-  })      
-
-  
 function passValue(){
     localStorage.setItem("isChatroom", true);
     return false;
