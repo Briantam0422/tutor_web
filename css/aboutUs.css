@@ -50,12 +50,19 @@ li{
     
 }
 
+.about-us{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .about-us-container{
     background-color: white;
     border-radius: 10px;
     box-shadow: 2px 2px 1px black;
-    padding: 20px;
+    padding: 10px;
     margin-top: 100px;
+    margin-bottom: 50px;
 }
 
 .about-us-container h1, h2, h3{
@@ -66,36 +73,33 @@ li{
     margin-top: 20px;
 }
 
-.about-us-team-member{
-    margin-top: 50px;
-    margin-bottom: 50px;
-
-}
-
-.about-us-team-member img{
-    width: 300px;
-    height: 500px;
-    border-radius: 20px;
-}
-
-.img-center{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .info{
-    margin-top: 50px;
+    margin-top: 40px;
 } 
 
-.info-bg{
+.about-us-team-member-new{
+
     background-color: var(--main_color);
-    padding: 25px;
     border-radius: 20px;
-    color: white;
-    margin-left: 50px;
+    box-shadow: 2px 2px 3px black;
+    margin-bottom: 50px;
 }
 
-.info-bg h1, h2{
+.about-us-team-member-new img{
+    width: 220px;
+    height: 350px;
+    display: flex;
+    border-radius: 10px;
+}
+
+.about-us-team-member-new h2{
+    color: white;
     font-size: 30px;
+
+}
+.infor-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 150px;
 }

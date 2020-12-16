@@ -14,7 +14,7 @@ var firebaseConfig = {
 
   const sign_in = document.getElementById("sign-in");
   const sign_up = document.getElementById("sign-up");
-  const porfile = document.getElementById("nav-profile");
+  const porfile = document.getElementById("profile");
   const btn_beacome_teacher = document.getElementById("btn-become-a-teacher");
   const sign_out = document.getElementById("btn-sign-out");
   sign_in.style.display = "none";

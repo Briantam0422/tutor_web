@@ -13,7 +13,7 @@ var firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
 
   const icon = document.getElementById("user-icon");
-  const name = document.getElementById("user-name");
+  const tutor_name = document.getElementById("user-name");
   const gender = document.getElementById("user-gender");
   const age = document.getElementById("user-age");
   const level = document.getElementById("level");
@@ -58,10 +58,12 @@ var firebaseConfig = {
 
         var data = snapshot.val();
 
-        var gender = data["gender"];
+        var get_gender = data["gender"];
         var user_name = data["user_name"];
 
-        if(gender == "Male"){
+        console.log(data)
+
+        if(get_gender == "Male"){
             icon.src = "../img/img_tutor_icon_1.svg";
             gender.src = "../img/ic_man.svg";
         }else{
@@ -69,7 +71,7 @@ var firebaseConfig = {
             gender.src = "../img/ic_woman.svg";
         }
 
-        name.innerHTML = user_name;
+        tutor_name.innerHTML = user_name;
 
     })
 
