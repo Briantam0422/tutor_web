@@ -15,7 +15,7 @@ var firebaseConfig = {
   const btn_send_reset_email = document.getElementById("btn-send-reset-email");
   const btn_back = document.getElementById("btn-back");
 
-  //send email
+  //send emai
   function SendResetEmail(){
 
     var auth = firebase.auth();

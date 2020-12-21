@@ -28,9 +28,6 @@ var firebaseConfig = {
 
         if(firebaseUser != null){
             
-            console.log("logged in");
-            console.log(firebaseUser.emailVerified);
-    
             //btn confirm
             btn_confirm.addEventListener('click', function(){
                 
@@ -42,8 +39,7 @@ var firebaseConfig = {
                 }
             });
         }else{
-            
-            console.log("not logged in")
+
         }
       });
   } 

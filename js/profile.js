@@ -61,8 +61,6 @@ var firebaseConfig = {
         var get_gender = data["gender"];
         var user_name = data["user_name"];
 
-        console.log(data)
-
         if(get_gender == "Male"){
             icon.src = "../tutor_web/img/img_tutor_icon_1.svg";
             gender.src = "../tutor_web/img/ic_man.svg";

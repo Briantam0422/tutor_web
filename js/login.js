@@ -10,7 +10,7 @@ var firebaseConfig = {
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  console.log(localStorage.getItem("isChatroom"))
+
   const input_email = document.getElementById("form-group-input-email");
   const input_password = document.getElementById("form-group-input-password");
   const btn_login = document.getElementById("btn-login");

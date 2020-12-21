@@ -51,7 +51,6 @@ btn_submit_register.addEventListener('click', e =>{
                         updateFirebase(user, inputGender, inputName);
                 
                     }else{
-                        console.log("not logged in")
                     }
 
 })
