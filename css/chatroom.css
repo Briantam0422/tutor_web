@@ -46,9 +46,14 @@ nav{
 }
 
 li{
-    margin: 0 8px;
+    margin: 0 2px;
     
 }
+
+#ic-profile{
+    height: 30px;
+}
+
 .container{
     background-color: #196094;
     margin-top: 20px;

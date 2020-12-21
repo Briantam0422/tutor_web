@@ -46,8 +46,12 @@ nav{
 }
 
 li{
-    margin: 0 8px;
+    margin: 0 2px;
     
+}
+
+#ic-profile{
+    height: 30px;
 }
 
 .about-us{

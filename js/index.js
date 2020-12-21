@@ -70,7 +70,7 @@ var firebaseConfig = {
         if(data == null){
           window.location.assign("../tutor_web/TutorRegister_information.html")
         }else{
-          window.alert("You have already registed as a tutor")
+          window.alert("You have already registered as our tutor")
         }
 
       })

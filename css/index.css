@@ -46,10 +46,13 @@ nav{
 }
 
 li{
-    margin: 0 8px;
+    margin: 0 2px;
     
 }
 
+#ic-profile{
+    height: 30px;
+}
 
 #your-profile{
     margin-right: 10px;
@@ -89,6 +92,8 @@ li{
     border-color: var(--main_color); 
     margin-top: 50px;
 }
+
+
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
     color: #fff;

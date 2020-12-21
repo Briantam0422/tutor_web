@@ -23,8 +23,8 @@ var firebaseConfig = {
         btn_next.addEventListener("click", e=>{
 
             passValue();
-            if(input_age.value!="" && input_name!="" && input_gender!=""){
-              window.location.assign("../tutor_web/TutorRegister_Background.html")
+            if(input_age.value!="" && input_age.value >= 18 && input_age.value <= 120 && input_name!="" && input_gender!=""){
+               window.location.assign("../tutor_web/TutorRegister_Background.html")
             }
             
         });

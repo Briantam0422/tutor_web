@@ -32,7 +32,7 @@
 
                         <div class="form-name">
                             <label for="form-group-input-experience" id="label-name">Teaching Experience</label>
-                            <input type="number" class="form-control" id="form-group-input-experience" placeholder="year" required>
+                            <input type="number" class="form-control"id="form-group-input-experience" min="0" placeholder="year" required>
                         </div>
 
                         <div class="form">
@@ -53,12 +53,17 @@
                                 <option>English</option>
                                 <option>Math</option>
                                 <option>LS</option>
+                                <option>Physics</option>
+                                <option>Chemistry</option>
+                                <option>Biology</option>
+                                <option>History</option>
+                                <option>other</option>
                             </select>
                         </div>
 
                         <div class="form">
                             <label for="form-group-input-salary" id="label-name">Expected salary per hour</label>
-                            <input type="number" class="form-control" id="form-group-input-salary" placeholder="salary per hour" required>
+                            <input type="number" class="form-control" id="form-group-input-salary" min="0" placeholder="salary per hour" required>
                         </div>
 
                         <button type="submit"  class="btn btn-primary" id="btn-next">Next</button>

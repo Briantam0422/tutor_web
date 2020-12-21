@@ -25,7 +25,7 @@ firebase.auth().onAuthStateChanged(function(user){
 
   if(user){
     porfile.style.display = "block";
-    console.log("aa");
+ 
     //get message record data
     MessageRecord(user)
 
@@ -44,8 +44,6 @@ firebase.auth().onAuthStateChanged(function(user){
 
 function MessageRecord(user){
 
-  var count = 0;
-
   firebase.database().ref("latest_chat/" + user.uid).once("value").then( function(snapshopt){
 
     snapshopt.forEach(function(child_snapshot){
@@ -59,22 +57,20 @@ function MessageRecord(user){
         
         var user_data = user_snapshot.val();
 
-        console.log(user_data);
-
         if(user_data !=null){
           var user_name = user_data["user_name"];
           var user_gender = user_data["gender"];
           var message = data["latest_message"];
           var date_and_time = data["date_and_time"];
-          count += 1;
-          console.log(count);
-          AddChatRecordItemToList(key, message, date_and_time, user_name, user_gender);
 
+
+          //create elements in html
+          AddChatRecordItemToList(key, message, date_and_time, user_name, user_gender);
 
         }
 
       })
-
+    
     })
 
     if(snapshopt.val() == null){
@@ -102,17 +98,31 @@ function AddChatRecordItemToList(user_key, message, date_and_time, user_name, us
 
   var chat_record_item_container = document.getElementById("chat-record-item-cotainer");
 
+
   //a link
   var link = document.createElement("a");
   chat_record_item_container.appendChild(link);
-  link.setAttribute("href", "Chatroom.html")
+  link.setAttribute("href", "#");
+
+  //set param
+  var param = document.createElement("param");
+  link.appendChild(param);
+  param.setAttribute("id", user_id);
+  param.setAttribute("gender", get_user_gender);
+
+  link.addEventListener("click", e=>{
+    var id = document.getElementById(user_id).id;
+    passValue(id, get_user_gender, get_user_name)
+    window.location.assign("../tutor_web/Chatroom.html");
+    
+  })
 
   //div 1
   var chat_record_item = document.createElement("div");
   link.appendChild(chat_record_item);
   chat_record_item.classList.add("col-12", "chat-record-item");
   
-  passValue(user_id, get_user_gender, get_user_name)
+  
 
   //diiv 1.1
   var row = document.createElement("div");
@@ -178,7 +188,7 @@ function passValue(key, get_gender, get_tutor_name){
 
     firebase.auth().signOut().then(function() {
         // Sign-out successful.
-        location.reload();
+        window.location.assign("../tutor_web/index.html")
       }).catch(function(error) {
         // An error happened.
         

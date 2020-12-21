@@ -16,6 +16,7 @@ firebase.initializeApp(firebaseConfig);
 const sign_in = document.getElementById("sign-in");
 const sign_up = document.getElementById("sign-up");
 const porfile = document.getElementById("nav-profile");
+const sign_out = document.getElementById("btn-sign-out");
 const input_message_text = document.getElementById("input-message-text");
 const btn_send_message = document.getElementById("btn-send-message");
 
@@ -29,11 +30,22 @@ sign_in.style.display = "none";
 sign_up.style.display = "none";
 porfile.style.display = "none";
 
+ //sign out
+ sign_out.addEventListener("click", e => {
+
+    firebase.auth().signOut().then(function() {
+        // Sign-out successful.
+        window.location.assign("../tutor_web/index.html")
+      }).catch(function(error) {
+        // An error happened.
+        
+      });
+  });
+
 //check Login status
 firebase.auth().onAuthStateChanged(function(user){
 
     if(user){
-        console.log(user.uid)
 
         //get user info
         UserInfo(user.uid)
@@ -87,13 +99,8 @@ function UserInfo(user_id){
       
             var data = snapshopt.val();
             current_user_gender = data["gender"];
-
     })
-
 }
-console.log(localStorage.getItem("key"));
-console.log(localStorage.getItem("chat_user_gender"));
-
 
 //create html elements
 function addSendedMessageToList(message, display_time){
@@ -284,3 +291,4 @@ function passValue(){
     localStorage.setItem("isChatroom", true);
     return false;
 }
+

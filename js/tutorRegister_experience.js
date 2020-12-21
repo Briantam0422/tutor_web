@@ -26,7 +26,7 @@ var firebaseConfig = {
         var salary = input_salary.value;
 
         if(user){
-            if(experience!="" && teach_level.value!="" && teach_subject!="" && salary!=""){
+            if(experience!="" && experience >= 0 && teach_level.value!="" && teach_subject!="" && salary!="" && salary >=0){
                 passValue();
                 window.location.assign("../tutor_web/TutorRegister_Location.html");
 
