@@ -248,11 +248,10 @@ var firebaseConfig = {
 
     var user_id = user.uid;
 
-    firebase.database().ref("latest_chat/" + user_id).on("child_changed", function(snapshot){
-
-
+    firebase.database().ref("chat/" + user_id).on("child_changed", function(snapshot){
+      console.log(snapshot.val())
       window.alert("You have new message, Please check the chat record");
-
+    
     })
 
   }
