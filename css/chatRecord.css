@@ -129,7 +129,7 @@ li{
     margin-right: 10px;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1000px) {
     .chat-record-item-user-icon  img{
         width: 60px;
         height: 60px;
