@@ -35,7 +35,7 @@ var firebaseConfig = {
                     alert("Email is not verified")
                 }else{
                     //redirect to index.html 
-                      window.location.assign("../tutor_web/index.html");
+                      window.location.assign("index.html");
                 }
             });
         }else{
@@ -66,7 +66,7 @@ var firebaseConfig = {
     firebase.auth().signOut().then(function() {
       // Sign-out successful.
   
-      window.location.assign("../tutor_web/index.html")
+      window.location.assign("index.html")
     }).catch(function(error) {
       // An error happened.
       

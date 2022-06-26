@@ -34,7 +34,7 @@ firebase.auth().onAuthStateChanged(function(user){
 
   }else{
     
-    window.location.assign("../tutor_web/Login.html")
+    window.location.assign("Login.html")
 
     sign_in.style.display = "block";
     sign_up.style.display = "block";
@@ -113,7 +113,7 @@ function AddChatRecordItemToList(user_key, message, date_and_time, user_name, us
   link.addEventListener("click", e=>{
     var id = document.getElementById(user_id).id;
     passValue(id, get_user_gender, get_user_name)
-    window.location.assign("../tutor_web/Chatroom.html");
+    window.location.assign("Chatroom.html");
     
   })
 
@@ -139,9 +139,9 @@ function AddChatRecordItemToList(user_key, message, date_and_time, user_name, us
   chat_record_item_user_icon.appendChild(icon);
 
   if(get_user_gender == "Male"){
-    icon.src = "../tutor_web/img/img_tutor_icon_1.svg";
+    icon.src = "img/img_tutor_icon_1.svg";
   }else{
-    icon.src = "../tutor_web/img/img_tutor_icon_2.svg.svg";
+    icon.src = "img/img_tutor_icon_2.svg.svg";
   }
 
   //div 1.1.2
@@ -188,7 +188,7 @@ function passValue(key, get_gender, get_tutor_name){
 
     firebase.auth().signOut().then(function() {
         // Sign-out successful.
-        window.location.assign("../tutor_web/index.html")
+        window.location.assign("index.html")
       }).catch(function(error) {
         // An error happened.
         
@@ -202,7 +202,7 @@ function passValue(key, get_gender, get_tutor_name){
 
     firebase.database().ref("latest_chat/" + user_id).on("child_changed", function(snapshot){
 
-      window.location.assign("../tutor_web/ChatRecord.html");
+      window.location.assign("ChatRecord.html");
 
 
     })

@@ -23,7 +23,7 @@ var firebaseConfig = {
     if(user){
         if (localStorage.getItem("isChatroom") == "true"){
             localStorage.removeItem("isChatroom")
-            window.location.assign("../tutor_web/Chatroom.html");
+            window.location.assign("Chatroom.html");
         }else{
 
         }
@@ -42,10 +42,10 @@ var firebaseConfig = {
                     //successful
                     if (localStorage.getItem("isChatroom") == "true"){
                         localStorage.removeItem("isChatroom")
-                        window.location.assign("../tutor_web/Chatroom.html");
+                        window.location.assign("Chatroom.html");
 
                     }else{
-                        window.location.assign("../tutor_web/index.html");
+                        window.location.assign("index.html");
                     }
         
                 }).catch(function(error){
@@ -91,10 +91,10 @@ var firebaseConfig = {
 
                     if (localStorage.getItem("isChatroom") == "true"){
                         localStorage.removeItem("isChatroom");
-                        window.location.assign("../tutor_web/Chatroom.html");
+                        window.location.assign("Chatroom.html");
 
                     }else{
-                        window.location.assign("../tutor_web/index.html");
+                        window.location.assign("index.html");
                     }
 
                 });
@@ -126,13 +126,13 @@ var firebaseConfig = {
  //go to register page
  btn_create_account.addEventListener("click", function(){
 
-    window.location.assign("../tutor_web/register.html");
+    window.location.assign("register.html");
     
  })
 
  //go to forget password page
  btn_forget_password.addEventListener("click", function(){
 
-    window.location.assign("../tutor_web/ForgetPassword.html")
+    window.location.assign("ForgetPassword.html")
 
  })

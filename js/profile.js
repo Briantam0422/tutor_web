@@ -42,7 +42,7 @@ var firebaseConfig = {
 
         porfile.style.display = "block";
     }else{
-        window.location.assign("../tutor_web/Login.html");
+        window.location.assign("Login.html");
         sign_in.style.display = "block";
         sign_up.style.display = "block";
     }
@@ -62,11 +62,11 @@ var firebaseConfig = {
         var user_name = data["user_name"];
 
         if(get_gender == "Male"){
-            icon.src = "../tutor_web/img/img_tutor_icon_1.svg";
-            gender.src = "../tutor_web/img/ic_man.svg";
+            icon.src = "img/img_tutor_icon_1.svg";
+            gender.src = "img/ic_man.svg";
         }else{
-            icon.src = "../tutor_web/img/img_tutor_icon_2.svg.svg";
-            gender.src = "../tutor_web/img/ic_woman.svg";
+            icon.src = "img/img_tutor_icon_2.svg.svg";
+            gender.src = "img/ic_woman.svg";
         }
 
         tutor_name.innerHTML = user_name;

@@ -42,7 +42,7 @@ var firebaseConfig = {
               updates["tutors/" + user.uid] = postData;
               
               firebase.database().ref().update(updates).then(user=>{
-                window.location.assign("../tutor_web/index.html");
+                window.location.assign("index.html");
               })
             }
             

@@ -28,7 +28,7 @@ var firebaseConfig = {
      
       //check email Verification status
       if(!user.emailVerified){
-          window.location.assign("../EmailVerification.html")
+          window.location.assign("EmailVerification.html")
       }
       CheckNewMessage(user)
       porfile.style.display = "block";

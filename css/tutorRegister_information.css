@@ -16,20 +16,19 @@ html{
 }
 body{
     width: 100%;
+    height: 100%;
     background-image: linear-gradient(290deg, rgb(34, 113, 169, 1), rgb(31, 16, 197, 0.5));
     background-repeat: no-repeat;
 }
 
 #tutor-form{
-    width: 500px;
-    height: 800px;
+    width: 100%;
+    height: 100%;
     background-color: white;
-    position: relative;
-    top: 100px;
-    left: 0;
     border: 2px solid white;
     border-radius: 10px;
     box-shadow: 2px 3px;
+    margin-top: 20px;
 }
 
 form img{
@@ -44,7 +43,7 @@ form img{
 }
 
 #header-line{
-    width: 500px;
+    width: 100%;
 content: url("../img/ic_form_header_line.svg");
 }
 

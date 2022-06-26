@@ -35,7 +35,7 @@ porfile.style.display = "none";
 
     firebase.auth().signOut().then(function() {
         // Sign-out successful.
-        window.location.assign("../tutor_web/index.html")
+        window.location.assign("index.html")
       }).catch(function(error) {
         // An error happened.
         
@@ -86,7 +86,7 @@ firebase.auth().onAuthStateChanged(function(user){
         sign_in.style.display = "block";
         sign_up.style.display = "block";
         passValue()
-        window.location.assign("../tutor_web/Login.html");
+        window.location.assign("Login.html");
     }
 
 })
@@ -143,9 +143,9 @@ function addSendedMessageToList(message, display_time){
     var icon = document.createElement("img");
     card_img_name.appendChild(icon);
     if(current_user_gender == "Male"){
-        icon.src = "../tutor_web/img/img_tutor_icon_1.svg"
+        icon.src = "img/img_tutor_icon_1.svg"
     }else{
-        icon.src = "../tutor_web/img/img_tutor_icon_2.svg.svg"
+        icon.src = "img/img_tutor_icon_2.svg.svg"
     }
 
     //name
@@ -180,9 +180,9 @@ function addReceiverMessageToList(message, display_time){
     var icon = document.createElement("img");
     card_img_name.appendChild(icon);
     if(localStorage.getItem("chat_user_gender") == "Male"){
-        icon.src = "../tutor_web/img/img_tutor_icon_1.svg"
+        icon.src = "img/img_tutor_icon_1.svg"
     }else{
-        icon.src = "../tutor_web/img/img_tutor_icon_2.svg.svg"
+        icon.src = "img/img_tutor_icon_2.svg.svg"
     }
 
     //name

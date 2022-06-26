@@ -25,14 +25,14 @@ var firebaseConfig = {
 
             passValue();
             if(input_level.value!="" && input_university.value!="" && input_major.value!=""){
-                window.location.assign("../tutor_web/TutorRegister_Experience.html")
+                window.location.assign("TutorRegister_Experience.html")
             }
         })
       
     }else{
         
         alert("Your account has logged out")
-        window.location.assign("../tutor_web/Login.html")
+        window.location.assign("Login.html")
     }
 
   })
